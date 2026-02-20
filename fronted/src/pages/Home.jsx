@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-
+import { API_URL } from "../config";
 const Home = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -9,7 +9,7 @@ const Home = ({ addToCart }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const { data } = await axios.get(
-        "http://localhost:3001/api/products"
+        `${API_URL}/api/products`
       );
       setProducts(data);
     };
